@@ -1,3 +1,4 @@
+import 'package:counterapp/bloc/counter_bloc.dart';
 import 'package:counterapp/cubit/counter_cubit.dart';
 import 'package:counterapp/inc_dec_page.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final counter = counterCubit.state;
-    final counterCubit = BlocProvider.of<CounterCubit>(context);
+    // final counterCubit = BlocProvider.of<CounterCubit>(context);
+    // final counterBloc = BlocProvider.of<CounterBloc>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -20,8 +23,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
-            BlocBuilder(
-              bloc: counterCubit,
+            BlocBuilder<CounterBloc,int>(
               builder: (context, counter) {
                 return Text(
                   '$counter',
