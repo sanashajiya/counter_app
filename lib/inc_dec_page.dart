@@ -1,5 +1,4 @@
 import 'package:counterapp/bloc/counter_bloc.dart';
-import 'package:counterapp/cubit/counter_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,6 +22,7 @@ class IncDecPage extends StatelessWidget {
           ),
           FloatingActionButton(
             onPressed: () {
+              counterBloc.add(CounterDecremented());
               // counterCubit.decrement();
             },
             tooltip: 'Decrement',
